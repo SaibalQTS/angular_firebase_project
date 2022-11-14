@@ -1,0 +1,66 @@
+<p>dashboard works!</p>
+<div class="container-fluid">
+    <div class="pull-right">
+        <button type="button" style="float: right;" class="btn btn-danger" (click)="register()">Logout</button>
+    </div>
+    <div class="row">
+        <h4>Wellcome to WebSkitters !! Start Managing product here</h4>
+        
+        <div class="col-md-4">
+            <div class="card border-0 shadow p-3">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="name" name="name" placeholder="product name" [(ngModel)]="name">
+                <label for="name">Product Name</label>
+              </div>
+              <div class="form-floating  mb-3">
+                <input type="text" class="form-control" id="price" name="price" placeholder="price" [(ngModel)]="price">
+                <label for="price">price</label>
+              </div>
+              <div class="form-floating  mb-3">
+                <input type="text" class="form-control" id="offer_price"  name="offer_price" placeholder="Offer Price" [(ngModel)]="offer_price">
+                <label for="offer_price">Offer Price</label>
+              </div>
+              <div class="form-floating  mb-3">
+                <input type="text" class="form-control" id="colours" name="colours" placeholder="Password" [(ngModel)]="colours">
+                <label for="colours">Colour</label>
+              </div>
+              <button type="button" class="btn btn-success" (click)="addProduct()">Add Product</button>
+            
+        </div>
+        </div>
+        <div class="col-md-8">
+           
+            <h4 class="text-danger">Product List</h4>
+            <div class="card p-3">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Offer Price</th>
+                        <th scope="col">Colour</th>
+                        <th scope="col">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let product of productList">
+                       
+                        <td>{{product.name}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.offer_price}}</td>
+                        <td>{{product.colours}}</td>
+                        <td>
+                            <button class="btn btn-outline-warning" (click)="editProduct(product)">Edit</button>
+                            <button class="btn btn-outline-danger" (click)="deleteProduct(product)">Delete</button>
+                        </td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+            </div>
+
+            </div>
+        </div>
+    </div>
+</div>
